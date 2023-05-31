@@ -14,8 +14,7 @@ class PostRepository {
     final response = await dio.get(ApiConstants.getPosts);
 
     if (response.statusCode == 200) {
-      final jsonString = response.data;
-      final json = jsonDecode(jsonString);
+      final json = response.data;
 
       final postList = <Post>[];
 

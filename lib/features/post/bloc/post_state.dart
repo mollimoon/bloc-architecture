@@ -13,7 +13,7 @@ class PostSuccessState extends PostState with EquatableMixin {
   PostSuccessState({required this.postList});
 
   @override
-  List<Object?> get props => [];
+  List<Object?> get props => [postList];
 }
 
 class PostErrorState extends PostState with EquatableMixin {
@@ -21,5 +21,5 @@ class PostErrorState extends PostState with EquatableMixin {
   PostErrorState({required this.errorText});
 
   @override
-  List<Object?> get props => [];
+  List<Object?> get props => [errorText];
 }
