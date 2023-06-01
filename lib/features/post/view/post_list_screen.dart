@@ -29,21 +29,36 @@ class _PostListScreenState extends State<PostListScreen> {
         await _postCubit.fetchPostList();
       },
       child: Scaffold(
-        body: BlocBuilder<PostCubit, PostState>(
-          bloc: _postCubit,
-          builder: (context, state) {
-            if (state is PostSuccessState) {
-              final items = state.postList;
+        body: 
+            BlocBuilder<PostCubit, PostState>(
+              bloc: _postCubit,
+              builder: (context, state) {
+                if (state is PostSuccessState) {
+                  final items = state.postList;
 
-              return ListView.builder(
-                itemBuilder: (context, index) => Text(items[index].title),
-                itemCount: items.length,
-              );
-            }
+                  return ListView.builder(
+                    itemBuilder: (context, index) => Card(
+                      elevation: 8,
+                      shadowColor: Colors.deepPurple,
+                      child: ListTile(
+                        title: Text(items[index].title),
+                        contentPadding: EdgeInsets.all(10),
+                        tileColor: Colors.white38,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                    ),
+                    itemCount: items.length,
+                  );
+                }
+                if (state is PostErrorState) {
+                  return const Text('Something is wrong. Try again');
+                }
+                return const Center(child: CircularProgressIndicator());
+              },
+            ),
 
-            return const Center(child: CircularProgressIndicator());
-          },
-        ),
       ),
     );
   }

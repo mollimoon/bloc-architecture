@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:study_architecture/features/post/view/home_screen.dart';
 import 'package:study_architecture/features/post/view/post_list_screen.dart';
 
 void main() {
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const PostListScreen(),
+      home: const HomeScreen(),
     );
   }
 }

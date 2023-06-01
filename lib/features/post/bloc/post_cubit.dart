@@ -11,8 +11,12 @@ class PostCubit extends Cubit<PostState> {
   Future<void> fetchPostList() async {
     emit(PostLoadingState());
 
-    final postList = await _postRepository.getPosts();
+    try {
+      final postList = await _postRepository.getPosts();
 
-    emit(PostSuccessState(postList: postList));
+      emit(PostSuccessState(postList: postList));
+    } catch (e) {
+      emit(PostErrorState(errorText: e.toString()));
+    }
   }
 }
