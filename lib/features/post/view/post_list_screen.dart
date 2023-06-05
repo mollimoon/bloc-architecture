@@ -13,6 +13,7 @@ class PostListScreen extends StatefulWidget {
 class _PostListScreenState extends State<PostListScreen> {
   late final PostCubit _postCubit;
 
+
   @override
   void initState() {
     super.initState();
@@ -29,6 +30,7 @@ class _PostListScreenState extends State<PostListScreen> {
         await _postCubit.fetchPostList();
       },
       child: Scaffold(
+        backgroundColor: Colors.blue[50],
         body: 
             BlocBuilder<PostCubit, PostState>(
               bloc: _postCubit,
@@ -37,15 +39,18 @@ class _PostListScreenState extends State<PostListScreen> {
                   final items = state.postList;
 
                   return ListView.builder(
-                    itemBuilder: (context, index) => Card(
-                      elevation: 8,
-                      shadowColor: Colors.deepPurple,
-                      child: ListTile(
-                        title: Text(items[index].title),
-                        contentPadding: EdgeInsets.all(10),
-                        tileColor: Colors.white38,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
+                    itemBuilder: (context, index) => Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+                      child: Card(
+                        elevation: 8,
+                        shadowColor: Colors.black,
+                        child: ListTile(
+                          title: Text(items[index].title),
+                          contentPadding: const EdgeInsets.all(10),
+                          tileColor: Colors.white38,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
                         ),
                       ),
                     ),

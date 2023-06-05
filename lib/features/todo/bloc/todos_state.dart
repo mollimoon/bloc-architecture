@@ -6,7 +6,7 @@ class TodoState {}
 
 class TodoLoadingState extends TodoState with EquatableMixin {
   @override
-  List<Object?> get props => [];
+  List<Object?> get props => []; //for hash ==
 }
 
 class TodoSuccessState extends TodoState with EquatableMixin {

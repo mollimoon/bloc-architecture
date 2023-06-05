@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:study_architecture/features/post/view/home_screen.dart';
+import 'package:study_architecture/features/common/home_screen.dart';
 import 'package:study_architecture/features/post/view/post_list_screen.dart';
 
 void main() {

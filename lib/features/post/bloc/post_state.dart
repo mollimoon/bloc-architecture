@@ -5,7 +5,7 @@ class PostState {}
 
 class PostLoadingState extends PostState with EquatableMixin {
   @override
-  List<Object?> get props => [];
+  List<Object?> get props => []; //hash сравн с одинак.тип.данных
 }
 
 class PostSuccessState extends PostState with EquatableMixin {
