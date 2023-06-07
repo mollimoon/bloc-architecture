@@ -30,7 +30,6 @@ class _PostListScreenState extends State<PostListScreen> {
         await _postCubit.fetchPostList();
       },
       child: Scaffold(
-        backgroundColor: Colors.blue[50],
         body: 
             BlocBuilder<PostCubit, PostState>(
               bloc: _postCubit,
@@ -39,11 +38,16 @@ class _PostListScreenState extends State<PostListScreen> {
                   final items = state.postList;
 
                   return ListView.builder(
+
                     itemBuilder: (context, index) => Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
                       child: Card(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        color: Colors.deepPurple.shade50,
                         elevation: 8,
-                        shadowColor: Colors.black,
+                        shadowColor: Colors.grey,
                         child: ListTile(
                           title: Text(items[index].title),
                           contentPadding: const EdgeInsets.all(10),

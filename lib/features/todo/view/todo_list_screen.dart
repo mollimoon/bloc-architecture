@@ -31,7 +31,6 @@ class _TodoListScreenState extends State<TodoListScreen> {
         await _todoCubit.fetchPostList();
       },
       child: Scaffold(
-        backgroundColor: Colors.green[50],
         body: BlocBuilder<TodoCubit, TodoState>(
           bloc: _todoCubit,
           builder: (context, state) {
@@ -42,8 +41,12 @@ class _TodoListScreenState extends State<TodoListScreen> {
                 itemBuilder: (context, index) => Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
                   child: Card(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    color: Colors.lightGreen.shade100,
                     elevation: 8,
-                    shadowColor: Colors.black,
+                    shadowColor: Colors.grey,
                     child: ListTile(
                       leading: Text(items[index].id.toString()),
                       title: Text(items[index].title, style: const TextStyle(fontSize: 16),),

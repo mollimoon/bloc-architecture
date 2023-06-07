@@ -27,12 +27,10 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(backgroundColor: Colors.deepPurple[100],),
+      appBar: AppBar(),
       body: screens[_currentIndex], // Отображение выбранного экрана
       bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: Colors.deepPurple[800],
-        unselectedItemColor: Colors.grey[700],
-        backgroundColor: Colors.deepPurple[100],
+        backgroundColor: Colors.deepPurple.shade100,
         onTap: onTabTapped, // Метод, который будет вызываться при нажатии на вкладки
         currentIndex: _currentIndex, // Индекс выбранной вкладки
         items: const [
